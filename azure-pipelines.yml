@@ -23,10 +23,11 @@ steps:
 - task: CopyFiles@2
   inputs:
     Contents: '**/.war'
+    sourceFolder: $(Build.SourcesDirectory)
     TargetFolder: '$(build.artifactstagingdirectory)'
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    PathtoPublish: '$(build.artifactstagingdirectory)'
     ArtifactName: 'artifacts'
     publishLocation: 'Container'
 
